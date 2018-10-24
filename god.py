@@ -13,11 +13,11 @@ async def on_ready():
     print("Name: {}".format(client.user.name))
     print("ID: {}".format(client.user.id))
     #Extra 1
-    await client.change_presence(game=discord.Game(name='type s.help'))
+    await client.change_presence(game=discord.Game(name='type /help'))
  
 @client.command(pass_context=True)
 async def rules(ctx):
-    await client.say("""RULES:
+    await client.say("""**
 ===========
 Rules of BLiTZ
 ===========
@@ -39,7 +39,23 @@ async def invite(ctx):
     print(x)
     embed = discord.Embed(title = "Invite Links", description = x, color = 0xFFFFF)
     return await client.say(embed = embed)
- 
+
+@client.command(pass_context = True)
+async def help(ctx):
+    x = await client.say("""**COMMANDS: 
+    /invite
+    /getbans
+    /connect
+    /disconnect
+    /clear
+    /ban
+    /kick
+    /listservers
+    /info
+    """)
+    print(x)
+    embed = discord.Embed(title = "Servers", description = x, color = 0xFFFFF)
+    return await client.say(embed = embed)
 #command2
 @client.command(pass_context = True)
 async def getbans(ctx):
